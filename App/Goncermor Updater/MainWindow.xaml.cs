@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.IO;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -14,10 +15,12 @@ namespace Goncermor_Updater
 {
     public partial class MainWindow : Window
     {
-        Storyboard? FadeIn;
-        Storyboard? FadeOut;
-        Storyboard? CircleIn;
-        Storyboard? CircleOut;
+        private Storyboard? FadeIn;
+        private Storyboard? FadeOut;
+        private Storyboard? CircleIn;
+        private Storyboard? CircleOut;
+
+       
 
         public MainWindow()
         {
@@ -25,21 +28,28 @@ namespace Goncermor_Updater
             FadeIn = this.FindResource("FadeIn") as Storyboard;
             FadeOut = this.FindResource("FadeOut") as Storyboard;
             CircleIn = this.FindResource("CircleIn") as Storyboard;
-            CircleOut = this.FindResource("CircleOut") as Storyboard; 
+            CircleOut = this.FindResource("CircleOut") as Storyboard;
+           
         }
 
         private async void Window_ContentRendered(object sender, EventArgs e)
         {
-            
-
-
             FadeIn?.Begin();
             await Task.Delay(1000);
             CircleIn?.Begin();
             await Task.Delay(2000);
 
-            // Check For Downloads
-            Storyboard? Stb = this.FindResource("Loading") as Storyboard;
+            AppInfo? AppInfo;
+            if (File.Exists("App.conf")) AppInfo = new AppInfo();
+            else
+            {
+                
+            }
+
+            
+
+        // Check For Downloads
+        Storyboard? Stb = this.FindResource("Loading") as Storyboard;
             Stb?.Begin();
             for (float i = 0;i!=100;i++)
             {

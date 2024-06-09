@@ -2,7 +2,7 @@
 
 namespace Goncermor_Updater.Types
 {
-    internal class Update
+    internal class VersionInfo
     {
         // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
         [JsonPropertyName("application_id")]
@@ -16,4 +16,5 @@ namespace Goncermor_Updater.Types
         [JsonPropertyName("hash")]
         public string? Hash { get; set; }
     }
+
 }

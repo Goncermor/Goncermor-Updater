@@ -9,6 +9,11 @@ namespace Goncermor_Updater
     /// </summary>
     public partial class App : Application
     {
+        public const string ServerAddress = "127.0.0.1";
+
+        
     }
+
+
 
 }
