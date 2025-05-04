@@ -8,7 +8,7 @@ require __DIR__ . '/vendor/autoload.php'; // Load MongoDb lib
 
 header('Content-Type: application/octet-stream'); // Set mime type
 
-$client = new MongoDB\Client('mongodb://gcm:Goncermor%40moly2007@192.168.1.1:27017/?directConnection=true');
+$client = new MongoDB\Client('HAHA YOU WISH');
 $db = $client->Goncermor;
 $collection = $db->Updater;
 // Get Database collection
